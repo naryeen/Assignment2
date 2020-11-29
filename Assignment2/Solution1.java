@@ -1,4 +1,4 @@
-//look into the method "private value get()..not completed"
+
 
 import java.util.*;
 
@@ -112,13 +112,13 @@ public class Solution1<Key extends Comparable<Key>, Value> {
         if (key == null)
             throw new IllegalArgumentException("Key Cannot be Null");
         if (root == null) {
-            root = new Node(key, val, 0);
+            root = new Node(key, val, 1);
             return;
         }
         if (value(root, key, val))
             return;
 
-        Node node = null, x = root, z = new Node(key, val, 0);
+        Node node = null, x = root, z = new Node(key, val, 1);
         while (x != null) {
             node = x;
 
@@ -297,7 +297,7 @@ public class Solution1<Key extends Comparable<Key>, Value> {
     }
 
     private void keys(Node x, ArrayList<Key> queue, Key lo, Key hi) {
-        if (lo == null)
+        if (x == null)
             return;
         int cmplow = lo.compareTo(x.key);
         int cmphigh = hi.compareTo(x.key);
@@ -344,7 +344,7 @@ public class Solution1<Key extends Comparable<Key>, Value> {
         System.out.println(s1);
 
         for (String s : object.keys("ABDUL", "TASHI"))
-            System.out.println(s + " ");
+            System.out.print(s + " ");
         // new line may be required ,, see when you execute the codes
 
         object.put("CHIMI", 5);
@@ -363,9 +363,8 @@ public class Solution1<Key extends Comparable<Key>, Value> {
         for (String s : object.keys("ABDUL", "TASHI"))
             System.out.print(s + " ");
         System.out.println(" ");
-
-        System.out.println("The size is:" + size);
-        // System.out.println("The maxium value is :" + max);
+        System.out.println("The size is:" + object.size());
+       
     }
 
 }
